@@ -36,8 +36,8 @@ app.post("/scrape", async (req, res) => {
     );
 
     await page.goto(url, {
-      waitUntil: "networkidle2",
-      timeout: 30000, // 30 sec timeout
+      waitUntil: "domcontentloaded",
+      timeout: 60000, // 30 sec timeout
     });
 
     const data = await page.evaluate(() => {
